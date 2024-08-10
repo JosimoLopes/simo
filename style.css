@@ -1,0 +1,165 @@
+/* global */
+:root {
+  --max-width: 1440px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+html {
+  background: #000;
+}
+
+body {
+  scroll-behavior: none;
+}
+
+main {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+}
+
+section {
+  width: 100%;
+}
+
+/* background line container */
+
+.line__container {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  left: 50%;
+  transform: translate(-50%);
+  max-width: var(--max-width);
+  height: 100vh;
+  overflow: hidden;
+}
+
+.separator {
+  position: absolute;
+  width: 1px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.separator:nth-child(1) {
+  left: 25%;
+}
+
+.separator:nth-child(2) {
+  left: 50%;
+}
+
+.separator:nth-child(3) {
+  left: 75%;
+}
+
+/* Main => Hero Section */
+
+#hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: min-content;
+}
+
+.hero__container {
+  height: 100vh;
+  width: 100%;
+  max-width: var(--max-width);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.hero__tittle {
+  overflow: hidden;
+}
+
+.hero__tittle__header {
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: clamp(2rem, 20cqi, 20rem);
+  letter-spacing: -0.05rem;
+  margin-bottom: 2rem;
+}
+
+.hero__container h4 {
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+/* about section */
+
+#about {
+  display: flex;
+  justify-content: center;
+}
+
+.about__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: var(--max-width);
+  min-height: 100vh;
+}
+
+.about__text {
+  width: 45%;
+  margin: auto;
+  text-align: center;
+  text-transform: uppercase;
+  text-wrap: balance;
+  font-size: 1.5rem;
+  letter-spacing: -0.05rem;
+}
+
+/* video section */
+
+#video {
+  display: flex;
+  justify-content: center;
+  min-height: 200vh;
+  /* border: 1px solid red; */
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+}
+
+video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* transform: scale(0.35); */
+  transform: scale(0.5);
+  will-change: transform;
+  /* animation: video-scale 0.1s linear;
+  animation-timeline: scroll();
+  animation-range: 0% 100%; */
+}
+
+/* @keyframes video-scale {
+  100% {
+    transform: scale(1);
+  }
+} */
