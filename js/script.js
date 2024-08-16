@@ -1,6 +1,8 @@
 import { lerp } from "./modules/utils.js";
-import { createProjects } from "./modules/projects.js";
+import { createProjects, createBlogPosts } from "./modules/projects.js";
+
 createProjects();
+createBlogPosts();
 
 const main = document.querySelector("main");
 const video = document.querySelector("video");
@@ -58,11 +60,28 @@ function animateProjects() {
   projectsSlider.style.transform = `translate3d(${-projectCurrentX}vw, 0, 0)`;
 }
 
+// Post animate
+const blogSection = document.getElementById("blog");
+const blogPosts = [...document.querySelectorAll(".post")];
+
+const scrollBlogPost = () => {
+  let blogSectionTop = blogSection.getBoundingClientRect().top;
+  for (let i = 0; i < blogPosts.length; i++) {
+    if (blogPosts[i].parentElement.getBoundingClientRect().top <= 1) {
+      let offset = (blogSectionTop + window.innerHeight * (i + 1)) * 0.0005;
+      offset = offset < -1 ? -1 : offset >= 0 ? 0 : offset;
+      blogPosts[i].style.transform = `scale(${1 + offset})`;
+    }
+  }
+};
+
 function animate() {
   animateProjects();
   requestAnimationFrame(animate);
 }
 
-animate();
+main.addEventListener("scroll", () => {
+  scrollBlogPost();
+});
 
-animateProjects();
+animate();
